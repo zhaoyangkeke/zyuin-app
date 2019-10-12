@@ -1,0 +1,278 @@
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>招商公路运营管理平台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="static/css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="static/js/jquery.ztree.all.js"></script>
+    <script type="text/javascript" src="static/config.js"></script>
+    <script type="text/javascript" src="static/checkBrowser.js"></script>
+    <script type="text/javascript" src="static/js/tripledes.js"></script>
+    <script type="text/javascript" src="static/js/mode-ecb.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <link rel="stylesheet" href="static/font/demo.css">
+    <link rel="stylesheet" href="static/font/iconfont.css">
+    <link href='static/fullcalendar-3.7.0/fullcalendar.css' rel='stylesheet' />
+    <link href='static/fullcalendar-3.7.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+    <script src='static/fullcalendar-3.7.0/lib/moment.min.js'></script>
+    <script src='static/fullcalendar-3.7.0/lib/jquery-ui.min.js'></script>
+    <script src='static/fullcalendar-3.7.0/fullcalendar.min.js'></script>
+    <script src='static/fullcalendar-3.7.0/locale-all.js'></script>
+    <!--<link rel="stylesheet" href="http://serverapi.arcgisonline.com/jsapi/arcgis/2.6/js/dojo/dijit/themes/tundra/tundra.css">
+    <script type="text/javascript" src="http://serverapi.arcgisonline.com/jsapi/arcgis/?v=2.6"></script>-->
+    <!--<link rel="stylesheet" href="static/js/HMap/HMap.min.css">
+    <script src="static/js/HMap/HMap.min.js"></script>-->
+    <!--<script src="http://211.101.37.227:9301/hmap/v1.5.9/hmap-js/hmap.min.js" type="text/javascript"></script>-->
+    <!--<link rel="stylesheet" href="http://118.24.57.53:3333/hmap/v1.5.9/hmap-js/hmap.css">-->
+    <link rel="stylesheet" href="static/layx/layx.css">
+    <!--<link rel="stylesheet" href="http://at.alicdn.com/t/font_947693_opnlru0gy5n.css">-->
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_947693_ip2vij7v7rr.css">
+    <script src='static/layx/layx.js'></script>
+    <script src="static/js/common.js"></script>
+    <style>
+      .x21
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:middle;
+ white-space:normal;word-wrap:break-word;
+ background:white;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"等线","sans-serif";
+ mso-protection:locked visible;
+ }
+.x22
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:middle;
+ white-space:normal;word-wrap:break-word;
+ background:white;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"等线","sans-serif";
+ border-top:1px solid windowtext;
+ border-right:none;
+ border-bottom:none;
+ border-left:none;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x23
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:general;
+ vertical-align:middle;
+ white-space:normal;word-wrap:break-word;
+ background:white;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"等线","sans-serif";
+ border-top:none;
+ border-right:none;
+ border-bottom:1px solid windowtext;
+ border-left:1px solid windowtext;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x24
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:middle;
+ white-space:normal;word-wrap:break-word;
+ background:white;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"等线","sans-serif";
+ border-top:none;
+ border-right:none;
+ border-bottom:1px solid windowtext;
+ border-left:none;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x25
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:general;
+ vertical-align:middle;
+ white-space:normal;word-wrap:break-word;
+ background:white;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"等线","sans-serif";
+ border-top:none;
+ border-right:none;
+ border-bottom:1px solid windowtext;
+ border-left:none;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x26
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:general;
+ vertical-align:middle;
+ white-space:normal;word-wrap:break-word;
+ background:white;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"等线","sans-serif";
+ border-top:none;
+ border-right:1px solid windowtext;
+ border-bottom:1px solid windowtext;
+ border-left:none;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x27
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:middle;
+ white-space:normal;word-wrap:break-word;
+ background:white;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"等线","sans-serif";
+ border-top:1px solid windowtext;
+ border-right:none;
+ border-bottom:none;
+ border-left:1px solid windowtext;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x28
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:middle;
+ white-space:normal;word-wrap:break-word;
+ background:white;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"等线","sans-serif";
+ border-top:1px solid windowtext;
+ border-right:1px solid windowtext;
+ border-bottom:1px solid windowtext;
+ border-left:1px solid windowtext;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x29
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:middle;
+ white-space:normal;word-wrap:break-word;
+ background:white;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"等线","sans-serif";
+ border-top:1px solid windowtext;
+ border-right:1px solid windowtext;
+ border-bottom:1px solid windowtext;
+ border-left:1px solid windowtext;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x30
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:middle;
+ white-space:normal;word-wrap:break-word;
+ background:white;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"等线","sans-serif";
+ border-top:none;
+ border-right:1px solid windowtext;
+ border-bottom:1px solid windowtext;
+ border-left:1px solid windowtext;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+.x31
+ {
+ mso-style-parent:style0;
+ mso-number-format:General;
+ text-align:center;
+ vertical-align:middle;
+ white-space:normal;word-wrap:break-word;
+ background:white;
+ mso-pattern:auto;
+ color:#000000;
+ font-size:11pt;
+ font-weight:400;
+ font-style:normal;
+ font-family:"等线","sans-serif";
+ border-top:1px solid windowtext;
+ border-right:1px solid windowtext;
+ border-bottom:none;
+ border-left:none;
+ mso-diagonal-down:none;
+ mso-diagonal-up:none;
+ mso-protection:locked visible;
+ }
+
+    </style>
+  </head>
+  <body onload="check()">
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
